@@ -24,3 +24,5 @@ Laat me weten als je errors krijgt. Het kan zijn dat je webpack globaal moet ins
     * Maak 3 eigen high order functions
 * Wat is een closure in JavaScript en wat kun je ermee?
     * Schrijf 3 closure voorbeelden
+* Schrijf voorbeelden van Arrow functies. Wat is er goed aan en wat kan je er allemaal mee?
+* Zoek template literals uit en gebruik het in een aantal console.log()
