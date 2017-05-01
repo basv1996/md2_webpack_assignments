@@ -35,6 +35,7 @@ var areYouStudent = true;
 var HaveAMobile = true;
 var GameDeveloper =  false;
 
+//debugger;
 /**
  * Opdracht 2: Arrays
  * Bedenk 3 arrays en vul ze met primitives
@@ -116,6 +117,7 @@ function devide(value2, dev){
     return (value2 / dev)
 }
 console.log(devide(12,4));
+console.log(devide(100,10));
 
 /**
  * Opdracht 7: Function & objects
@@ -124,10 +126,13 @@ console.log(devide(12,4));
  * roep deze functie aan en console.log() de waarde
  */
 
-function person(firstname, lastname){
-    return (henkje, janssen)
+function getPerson(firstName, lastName){
+    return {
+        firstName, 
+        lastName
+    };
 }
-console.log(person());
+console.log(getPerson("Berend", "Weij"));
 
 /**
  * Opdracht 8: Functions, objects
