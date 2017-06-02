@@ -1,3 +1,4 @@
+import 'les_6.js';
 /**
  * Uitleg van deze opdrachten:
  * Kijk hoever je komt met deze opdrachten. Ik zal deze lijst in de toekomst
@@ -131,10 +132,8 @@ console.log(devide(100,10));
  */
 
 function getPerson(firstName, lastName){
-    return {
-        firstName, 
-        lastName
-    };
+    var person = {'firstName':firstName, 'lastName':lastName};
+    return person;
 }
 console.log(getPerson("Berend", "Weij"));
 
@@ -144,11 +143,23 @@ console.log(getPerson("Berend", "Weij"));
  * Maak in dit object bij het aanmaken een functie aan met de naam 'showName'
  */
 
+console.log("opracht 8");
+var student = {'showName':function(){
+    return this.firstname;
+},'firstname':'John',
+               'lastname':'Doe'
+              };
+console.log(student.showName());
+
 /**
  * Opdracht 9: Arrays & for loops
  * Maak een array genaamd 'students' met daarin 10 namen van je medeleerlingen
  * Schrijf een for loop om alle namen in de Array te laten zien (console.log())
  */
+var students = ['Bas', 'Jelle', 'Rowy', 'Desteney', 'Sjaak', 'Lucas', 'Tom', 'Willem', 'Martijn', 'Menno'];
+for (var i = 0; i < students.length; i++) { 
+    console.log(students[i]);
+}
 
 /**
  * Opdracht 10: Strings samenvoegen
@@ -157,6 +168,12 @@ console.log(getPerson("Berend", "Weij"));
  * Maak een variabele fullName, en zorg ervoor dat de variabelen 'firstName' en
  * 'lastName' hier samen in worden opgeslagen
  */
+   
+let firstName = "Bas";
+let lastName = "Vugts";
+let fullName = firstName + " " + lastName;
+
+                          
 
 /**
  * Opdracht 11: Random cijfers
@@ -165,6 +182,11 @@ console.log(getPerson("Berend", "Weij"));
  * console.log() een willekeurige cijfer tussen 30 en 40
  * console.log() een willekeurige cijfer tussen -100 en 100
  */
+                          
+console.log(Math.random()*5);
+console.log(Math.random()*9+1);
+console.log(Math.random()*10+30);
+console.log(Math.random()*200-100);
 
 /**
  * Opdracht 12: Primitive, Array of object?
@@ -172,33 +194,43 @@ console.log(getPerson("Berend", "Weij"));
  * false te zetten
  */
 console.log('De naam van een gebruiker sla ik op in een:',
-            { array : false, object : false, primitive : false });
+            { array : false, object : false, primitive : true });
 
 console.log('De naam, leeftijd en lengte van een gebruiker sla ik op in een:',
-            { array : false, object : false, primitive : false });
+            { array : false, object : true, primitive : false });
 
 console.log('Alle facturen van een zakelijke klant sla ik op in een:',
-            { array : false, object : false, primitive : false });
+            { array : true, object : true, primitive : false });
 
 console.log('Een factuur sla ik op in een:',
-            { array : false, object : false, primitive : false });
+            { array : false, object : false, primitive : true });
 
 console.log(
     'Als ik vanuit JavaScript een menu maak met knoppen, dan sla ik de knoppen op in een:',
-    { array : false, object : false, primitive : false });
+    { array : true, object : false, primitive : false });
 
 /**
  * Opdracht 13: Keywords
  * Maak 4 variabelen aan met de let keyword
  * Maak 4 variabelen aan met de const keyword
  */
+console.log("opdracht 13");
+let q = "test";
+let r = "2e letter";
+let s = "true";
+let t = ['1', '2', '3'];
+                          
+const u = "test";
+const v = "2e const";
+const w = "true";
+const x = ['1', '2', '3'];
 
 /**
  * Opdracht 14: Keywords
  * Geef antwoord op de volgende vragen:
  */
-console.log('Wanneer gebruik je de let keyword?', 'jouw antwoord');
-console.log('Wanneer gebruik je de const keyword', 'jouw antwoord');
+console.log('Wanneer gebruik je de let keyword?', 'Als het aanpasbaar binnen het blok moet zijn');
+console.log('Wanneer gebruik je de const keyword', 'als het niet aanpasbaar moet zijn');
 
 /**
  * Opdracht 15: Objects en array
@@ -207,6 +239,10 @@ console.log('Wanneer gebruik je de const keyword', 'jouw antwoord');
  * uit je familie
  * (objecten en arrays kunnen in elkaar opgeslagen worden)
  */
+                          
+let Bas = {naam:'Bas', leeftijd:20, lengte:180, family:['Tim', 'Tamara','Jeffrey']};
+console.log(Bas);
+
 
 /**
  * Hieronder heb ik code geschreven die je nodig hebt voor vraag 16 en 17
@@ -231,6 +267,9 @@ String.prototype.replaceAll = function(search, replacement) {
  * console.log() de naam die deze functie returned
  */
 
+let namen = ['John', 'Jane', 'Bas'];
+console.log(namen.random());
+
 /**
  * Opdracht 17: Custom prototype method gebruiken
  * Maak een variabele waarin je een lange tekst opslaat
@@ -239,12 +278,15 @@ String.prototype.replaceAll = function(search, replacement) {
  * console.log() deze gewijzigde tekst
  */
 
+let PieceOfString = 'Lorem Ipsum is een super leuke, Lorem ipsum is handig, De Lorem tekst is om dingen te testen'
+console.log(PieceOfString.replaceAll('Lorem', 'Replaced'));
+
 /**
  * Opdracht 18: Prototype based language
  * Geef antwoord op onderstaande vraag
  */
 console.log('Waarom heet JavaScript een prototype based language?',
-            'jouw antwoord');
+            'omdat ze andere objecten inheriten om verschillende en standaard methods te hebben');
 
 
 /**
@@ -253,6 +295,17 @@ console.log('Waarom heet JavaScript een prototype based language?',
  * je bij elke array een empty() functie kunt aanroepen.
  * Zorg ervoor dat deze functie er is en laat met 3 arrays zien dat hij werkt
  */
+Array.prototype.empty = function(){
+    this.splice(0, this.length);
+    return this;
+}
+
+let JoeySkills = ['java', 'androidstudio', 'php'];
+let colours = ['red', 'blue', 'purple'];
+let alphabet = ['a', 'b', 'c', 'd', 'e'];
+
+console.log(JoeySkills.empty());
+console.log(alphabet.empty());
 
 /**
  * Opdracht 20: Monkey patching (?)
@@ -260,3 +313,12 @@ console.log('Waarom heet JavaScript een prototype based language?',
  * functies van Arrays te overschrijven met een eigen functie.
  * Maak 2 arrays aan en laat zien dat je code werkt
  */
+
+Array.prototype.splice = function (begin, end) {
+    for(let i = begin; i < end; i++){
+        delete this[i];
+    }
+    return this;
+};
+
+console.log(colours.splice(2,3));
